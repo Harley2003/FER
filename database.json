@@ -1,0 +1,220 @@
+{
+  "Account": [
+    {
+      "Id": "1",
+      "password": "123",
+      "role": "1",
+      "name": "student1",
+      "fptID": "student1",
+      "classID": "1"
+    },
+    {
+      "Id": "2",
+      "password": "123",
+      "role": "2",
+      "name": "teacher1",
+      "fptID": "teacher1",
+      "classID": "1"
+    }
+  ],
+  "Class": [
+    {
+      "id": "1",
+      "name": "SE1835-NJ-APHL-SUMMER2024"
+    }
+  ],
+  "Course": [
+    {
+      "id": "1",
+      "name": "FER202",
+      "status": "ongoing",
+      "classID": "1"
+    },
+    {
+      "id": "2",
+      "name": "SWP391",
+      "status": "ongoing",
+      "classID": "1"
+    },
+    {
+      "id": "3",
+      "name": "SWR302",
+      "status": "ongoing",
+      "classID": "1"
+    },
+    {
+      "id": "4",
+      "name": "SWT301",
+      "status": "ongoing",
+      "classID": "1"
+    }
+  ],
+  "Slot": [
+    {
+      "id": "1",
+      "name": "Slot1",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "2",
+      "name": "Slot2",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "3",
+      "name": "Slot3",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "4",
+      "name": "Slot4",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "5",
+      "name": "Slot5",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "6",
+      "name": "Slot6",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "7",
+      "name": "Slot7",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "8",
+      "name": "Slot8",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "9",
+      "name": "Slot9",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "10",
+      "name": "Slot10",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "11",
+      "name": "Slot11",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "12",
+      "name": "Slot12",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "13",
+      "name": "Slot13",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "14",
+      "name": "Slot14",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "15",
+      "name": "Slot15",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "16",
+      "name": "Slot16",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "17",
+      "name": "Slot17",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "18",
+      "name": "Slot18",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "19",
+      "name": "Slot19",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    },
+    {
+      "id": "20",
+      "name": "Slot20",
+      "title": "Duong ngu vlon that right?",
+      "status": "ongoing",
+      "courseID": "1"
+    }
+  ],
+  "Question": [
+    {
+      "id": "1",
+      "imageQuestion": "",
+      "title": "Duong ngu vlon that right?",
+      "content": "Duong ga?",
+      "status": "hidden",
+      "slotID": "1"
+    },
+    {
+      "id": "2",
+      "imageQuestion": "",
+      "title": "Duong ngu vlon that right?",
+      "content": "Duong ga?",
+      "status": "hidden",
+      "slotID": "1"
+    }
+  ],
+  "Comment": [
+    {
+      "id": "1",
+      "accountID": "1",
+      "content": "Duong ngu vlon that right?",
+      "questionID": "1"
+    }
+  ]
+}
