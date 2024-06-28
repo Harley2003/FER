@@ -1,13 +1,14 @@
-import React, { createContext } from 'react'
+import React, { createContext } from "react";
 
 export const DataContext = createContext();
 
-const Provider = () => {
+const Provider = ({ children }) => {
+  
   return (
     <div>
-      
+      <DataContext.Provider>{children}</DataContext.Provider>
     </div>
-  )
-}
+  );
+};
 
-export default Provider
+export default Provider;
