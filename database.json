@@ -1,220 +1,804 @@
 {
   "Account": [
     {
-      "Id": "1",
+      "id": 1,
+      "name": "Nguyễn Kim Tuấn Dương",
+      "userName": "student1",
       "password": "123",
-      "role": "1",
-      "name": "student1",
-      "fptID": "student1",
-      "classID": "1"
+      "studentID": "HE171150",
+      "email": "Duongnkthe171150@fpt.edu.vn",
+      "roleID": 1,
+      "roleName": "Student",
+      "classID": [1, 2]
     },
     {
-      "Id": "2",
+      "id": 2,
+      "name": "Đỗ Sinh Hoàn",
+      "userName": "student2",
       "password": "123",
-      "role": "2",
-      "name": "teacher1",
-      "fptID": "teacher1",
-      "classID": "1"
+      "studentID": "HE170447",
+      "email": "Hoandshe170447@fpt.edu.vn",
+      "roleID": 1,
+      "roleName": "Student",
+      "classID": [1, 2]
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Đức Minh Quân",
+      "userName": "student3",
+      "password": "123",
+      "studentID": "HE170809",
+      "email": "Quanndmhe170809@fpt.edu.vn",
+      "roleID": 1,
+      "roleName": "Student",
+      "classID": [1, 2]
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Anh Đức",
+      "userName": "student4",
+      "password": "123",
+      "studentID": "HE171122",
+      "email": "Ducnahe171122@fpt.edu.vn",
+      "roleID": 1,
+      "roleName": "Student",
+      "classID": [1, 2]
+    },
+    {
+      "id": 5,
+      "userName": "teacher1",
+      "password": "123",
+      "email": "Hoannn6@fpt.edu.vn",
+      "roleID": 2,
+      "roleName": "Teacher",
+      "teacherID": "Hoannn6",
+      "classID": [1]
+    },
+    {
+      "id": 6,
+      "userName": "teacher2",
+      "password": "123",
+      "email": "Linhndm3@fpt.edu.vn",
+      "roleID": 2,
+      "roleName": "Teacher",
+      "teacherID": "Linhndm3",
+      "classID": [1]
+    },
+    {
+      "id": 7,
+      "userName": "teacher3",
+      "password": "123",
+      "email": "Thanhdt59@fpt.edu.vn",
+      "roleID": 2,
+      "roleName": "Teacher",
+      "teacherID": "Thanhdt59",
+      "classID": [1]
+    },
+    {
+      "id": 8,
+      "userName": "teacher4",
+      "password": "123",
+      "email": "Nangnth@fpt.edu.vn",
+      "roleID": 2,
+      "roleName": "Teacher",
+      "teacherID": "Nangnth",
+      "classID": [1]
     }
   ],
   "Class": [
     {
-      "id": "1",
-      "name": "SE1835-NJ-APHL-SUMMER2024"
+      "id": 1,
+      "name": "SE1835-NJ-APHL",
+      "accountID": [1, 2, 3, 4, 5, 6, 7, 8]
+    },
+    {
+      "id": 2,
+      "name": "SE1830-APHL",
+      "accountID": [1, 2, 3, 4]
+    }
+  ],
+  "Semester": [
+    {
+      "id": 1,
+      "name": "TRIAL",
+      "classID": [1]
+    },
+    {
+      "id": 2,
+      "name": "SUMMER2023",
+      "classID": [1]
+    },
+    {
+      "id": 3,
+      "name": "FALL2023",
+      "classID": [1]
+    },
+    {
+      "id": 4,
+      "name": "SPRING2023",
+      "classID": [1]
+    },
+    {
+      "id": 5,
+      "name": "SPRING2024",
+      "classID": [1]
+    },
+    {
+      "id": 6,
+      "name": "SUMMER2024",
+      "classID": [1]
     }
   ],
   "Course": [
     {
-      "id": "1",
-      "name": "FER202",
-      "status": "ongoing",
-      "classID": "1"
+      "id": 1,
+      "title": "OSG202",
+      "name": "Operating System_Hệ điều hành",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 2
     },
     {
-      "id": "2",
-      "name": "SWP391",
-      "status": "ongoing",
-      "classID": "1"
+      "id": 2,
+      "title": "PRO192",
+      "name": "Object-Oriented Programming_Lập trình hướng đối tượng",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 2
     },
     {
-      "id": "3",
-      "name": "SWR302",
-      "status": "ongoing",
-      "classID": "1"
+      "id": 3,
+      "title": "JPD113",
+      "name": "Elementary Japanese 1- A1.1_Tiếng Nhật sơ cấp 1-A1.1",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 3
     },
     {
-      "id": "4",
-      "name": "SWT301",
-      "status": "ongoing",
-      "classID": "1"
+      "id": 4,
+      "title": "CSD201",
+      "name": "Data Structures and Algorithm_Cấu trúc dữ liệu và giải thuật",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 3
+    },
+    {
+      "id": 5,
+      "title": "DBI202",
+      "name": "Database Systems_Các hệ cơ sở dữ liệu",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 3
+    },
+    {
+      "id": 6,
+      "title": "IOT102",
+      "name": "Internet of Things_Internet vạn vật",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 5
+    },
+    {
+      "id": 7,
+      "title": "MAS291",
+      "name": "Statistics & Probability_Xác suất thống kê",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 5
+    },
+    {
+      "id": 8,
+      "title": "PRJ301",
+      "name": "Java Web Application Development_Phát triển ứng dụng Java web",
+      "statusID": 2,
+      "classID": 2,
+      "semesterID": 5
+    },
+    {
+      "id": 9,
+      "title": "FER202",
+      "name": "Front-End web development with React_Phát triển web Front-End với React",
+      "statusID": 2,
+      "classID": 1,
+      "semesterID": 6
+    },
+    {
+      "id": 10,
+      "title": "SWP391",
+      "name": "Software development project_Dự án phát triển phần mềm",
+      "statusID": 2,
+      "classID": 1,
+      "semesterID": 6
+    },
+    {
+      "id": 11,
+      "title": "SWR302",
+      "name": "Software Requirement_Yêu cầu phần mềm",
+      "statusID": 2,
+      "classID": 1,
+      "semesterID": 6
+    },
+    {
+      "id": 12,
+      "title": "SWT301",
+      "name": "Software Testing_Kiểm thử phần mềm",
+      "statusID": 2,
+      "classID": 1,
+      "semesterID": 6
     }
   ],
   "Slot": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Slot1",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Slot2",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Slot3",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Slot4",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Slot5",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Slot6",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Slot7",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Slot8",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Slot9",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Slot10",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "11",
+      "id": 11,
       "name": "Slot11",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "12",
+      "id": 12,
       "name": "Slot12",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "13",
+      "id": 13,
       "name": "Slot13",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "14",
+      "id": 14,
       "name": "Slot14",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "15",
+      "id": 15,
       "name": "Slot15",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "Slot16",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "17",
+      "id": 17,
       "name": "Slot17",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "18",
+      "id": 18,
       "name": "Slot18",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "19",
+      "id": 19,
       "name": "Slot19",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
     },
     {
-      "id": "20",
+      "id": 20,
       "name": "Slot20",
-      "title": "Duong ngu vlon that right?",
-      "status": "ongoing",
-      "courseID": "1"
+      "title": "Sample title",
+      "statusID": 2,
+      "courseID": 1
+    }
+  ],
+  "Status": [
+    {
+      "id": 1,
+      "statusName": "Hidden"
+    },
+    {
+      "id": 2,
+      "statusName": "On Going"
+    },
+    {
+      "id": 3,
+      "statusName": "Cancelled"
+    },
+    {
+      "id": 4,
+      "statusName": "Completed"
+    },
+    {
+      "id": 5,
+      "statusName": "Not Started"
+    },
+    {
+      "id": 6,
+      "statusName": "Assignment or Feedback"
+    }
+  ],
+  "AccountCourse": [
+    {
+      "accountID": 1,
+      "courseID": 1
+    },
+    {
+      "accountID": 1,
+      "courseID": 2
+    },
+    {
+      "accountID": 1,
+      "courseID": 3
+    },
+    {
+      "accountID": 1,
+      "courseID": 4
+    },
+    {
+      "accountID": 1,
+      "courseID": 5
+    },
+    {
+      "accountID": 1,
+      "courseID": 6
+    },
+    {
+      "accountID": 1,
+      "courseID": 7
+    },
+    {
+      "accountID": 1,
+      "courseID": 8
+    },
+    {
+      "accountID": 1,
+      "courseID": 9
+    },
+    {
+      "accountID": 1,
+      "courseID": 10
+    },
+    {
+      "accountID": 1,
+      "courseID": 11
+    },
+    {
+      "accountID": 1,
+      "courseID": 12
+    },
+    {
+      "accountID": 2,
+      "courseID": 1
+    },
+    {
+      "accountID": 2,
+      "courseID": 2
+    },
+    {
+      "accountID": 2,
+      "courseID": 3
+    },
+    {
+      "accountID": 1,
+      "courseID": 3
+    },
+    {
+      "accountID": 2,
+      "courseID": 4
+    },
+    {
+      "accountID": 2,
+      "courseID": 5
+    },
+    {
+      "accountID": 2,
+      "courseID": 6
+    },
+    {
+      "accountID": 2,
+      "courseID": 7
+    },
+    {
+      "accountID": 2,
+      "courseID": 8
+    },
+    {
+      "accountID": 2,
+      "courseID": 9
+    },
+    {
+      "accountID": 2,
+      "courseID": 10
+    },
+    {
+      "accountID": 2,
+      "courseID": 11
+    },
+    {
+      "accountID": 2,
+      "courseID": 12
+    }
+  ],
+  "AccountSemester": [
+    {
+      "accountID": 1,
+      "semesterID": 1
+    },
+    {
+      "accountID": 1,
+      "semesterID": 2
+    },
+    {
+      "accountID": 1,
+      "semesterID": 3
+    },
+    {
+      "accountID": 1,
+      "semesterID": 4
+    },
+    {
+      "accountID": 1,
+      "semesterID": 5
+    },
+    {
+      "accountID": 1,
+      "semesterID": 6
+    },
+    {
+      "accountID": 2,
+      "semesterID": 1
+    },
+    {
+      "accountID": 2,
+      "semesterID": 2
+    },
+    {
+      "accountID": 2,
+      "semesterID": 3
+    },
+    {
+      "accountID": 2,
+      "semesterID": 4
+    },
+    {
+      "accountID": 2,
+      "semesterID": 5
+    },
+    {
+      "accountID": 2,
+      "semesterID": 6
     }
   ],
   "Question": [
     {
-      "id": "1",
+      "id": 1,
       "imageQuestion": "",
-      "title": "Duong ngu vlon that right?",
-      "content": "Duong ga?",
-      "status": "hidden",
-      "slotID": "1"
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 1
     },
     {
-      "id": "2",
+      "id": 2,
       "imageQuestion": "",
-      "title": "Duong ngu vlon that right?",
-      "content": "Duong ga?",
-      "status": "hidden",
-      "slotID": "1"
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 2
+    },
+    {
+      "id": 3,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 3
+    },
+    {
+      "id": 4,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 4
+    },
+    {
+      "id": 5,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 5
+    },
+    {
+      "id": 6,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 6
+    },
+    {
+      "id": 7,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 7
+    },
+    {
+      "id": 8,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 8
+    },
+    {
+      "id": 9,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 9
+    },
+    {
+      "id": 10,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 10
+    },
+    {
+      "id": 11,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 11
+    },
+    {
+      "id": 12,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 12
+    },
+    {
+      "id": 13,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 13
+    },
+    {
+      "id": 14,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 14
+    },
+    {
+      "id": 15,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 15
+    },
+    {
+      "id": 16,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 16
+    },
+    {
+      "id": 17,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 17
+    },
+    {
+      "id": 18,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 18
+    },
+    {
+      "id": 19,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 19
+    },
+    {
+      "id": 20,
+      "imageQuestion": "",
+      "title": "Sample question title",
+      "content": "Sample question content",
+      "startDate": "2022-12-27",
+      "endDate": "2023-05-26",
+      "slotID": 20
     }
   ],
   "Comment": [
     {
-      "id": "1",
-      "accountID": "1",
-      "content": "Duong ngu vlon that right?",
-      "questionID": "1"
+      "id": 1,
+      "accountID": 1,
+      "questionID": 1,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 2,
+      "accountID": 1,
+      "questionID": 2,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 3,
+      "accountID": 1,
+      "questionID": 3,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 4,
+      "accountID": 1,
+      "questionID": 4,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 5,
+      "accountID": 1,
+      "questionID": 5,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 6,
+      "accountID": 1,
+      "questionID": 6,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 7,
+      "accountID": 1,
+      "questionID": 7,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 8,
+      "accountID": 1,
+      "questionID": 8,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 9,
+      "accountID": 1,
+      "questionID": 9,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
+    },
+    {
+      "id": 10,
+      "accountID": 1,
+      "questionID": 10,
+      "title": "Sample comment title",
+      "content": "Sample comment content"
     }
   ]
 }

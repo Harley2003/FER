@@ -1,11 +1,17 @@
 import React from "react";
-import { Router, Routes, Route } from "react-router-dom";
-import HomePage from "./components/users/HomePage";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./components/students/HomePage";
 import "./assets/css/style.css";
 import { PATHROUTERS } from "./utils/pathRouter";
+import Assignment from "./components/students/Assignment";
+import UpcomingSlot from './components/students/UpcomingSlot';
 
 const renderUserRouter = () => {
   const userRouters = [
+    {
+      path: PATHROUTERS.USERS.SHOWPAGE,
+      component: ""
+    },
     {
       path: PATHROUTERS.USERS.LOGIN,
       component: ""
@@ -21,6 +27,14 @@ const renderUserRouter = () => {
     {
       path: PATHROUTERS.USERS.LOGIN,
       component: ""
+    },
+    {
+      path: PATHROUTERS.USERS.ASSIGNMENT,
+      component: <Assignment />
+    },
+    {
+      path: PATHROUTERS.USERS.UPCOMINGSLOT,
+      component: <UpcomingSlot />
     }
   ];
 

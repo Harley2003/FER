@@ -1,0 +1,132 @@
+.css-ewdv3l {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.css-1t8x7v1 {
+    width: 100%;
+    position: relative;
+}
+
+.css-1t8x7v1>.ps-menu-button {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 50px;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding-right: 20px;
+    /* padding-left: 20px; */
+    font-size: 20px;
+}
+
+.css-12w9als {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.menu1 {
+    /* margin-bottom: 15px; */
+    /* margin-top: 20px; */
+    /* margin-left: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.css-wx7wi4 {
+    width: 35px;
+    min-width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 2px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.edu-tabs-header {
+    margin-bottom: 20px;
+}
+
+.css-orq8zk {
+    overflow: hidden;
+    min-height: 48px;
+    display: flex;
+}
+
+.css-1anid1y {
+    position: relative;
+    display: inline-block;
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.css-k008qs {
+    display: flex;
+}
+
+.edu-tabs .MuiTab-root {
+    font-weight: 600;
+}
+
+.css-1id89ip.Mui-selected {
+    color: rgb(25, 118, 210);
+}
+
+.css-1id89ip {
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent;
+    outline: 0px;
+    border: 0px;
+    margin: 0px;
+    border-radius: 0px;
+    cursor: pointer;
+    user-select: none;
+    vertical-align: middle;
+    appearance: none;
+    text-decoration: none;
+    font-family: "Be Vietnam Pro", sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25;
+    text-transform: uppercase;
+    max-width: 360px;
+    min-width: 90px;
+    position: relative;
+    min-height: 48px;
+    flex-shrink: 0;
+    padding: 12px 16px;
+    overflow: hidden;
+    white-space: normal;
+    text-align: center;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.css-w0pj6f {
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 0;
+    inset: 0px;
+    border-radius: inherit;
+}
