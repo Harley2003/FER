@@ -5,37 +5,38 @@ import "./assets/css/style.css";
 import { PATHROUTERS } from "./utils/pathRouter";
 import Assignment from "./components/students/Assignment";
 import UpcomingSlot from './components/students/UpcomingSlot';
+import CourseDetails from "./components/students/CourseDetails";
 
 const renderUserRouter = () => {
   const userRouters = [
     {
       path: PATHROUTERS.USERS.SHOWPAGE,
-      component: ""
+      component: "",
     },
     {
       path: PATHROUTERS.USERS.LOGIN,
-      component: ""
+      component: "",
     },
     {
       path: PATHROUTERS.USERS.HOMEPAGES,
-      component: <HomePage />
+      component: <HomePage />,
     },
     {
       path: PATHROUTERS.USERS.HOMECOURSES,
-      component: ""
+      component: <CourseDetails />,
     },
     {
       path: PATHROUTERS.USERS.LOGIN,
-      component: ""
+      component: "",
     },
     {
       path: PATHROUTERS.USERS.ASSIGNMENT,
-      component: <Assignment />
+      component: <Assignment />,
     },
     {
       path: PATHROUTERS.USERS.UPCOMINGSLOT,
-      component: <UpcomingSlot />
-    }
+      component: <UpcomingSlot />,
+    },
   ];
 
   return (

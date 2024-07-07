@@ -10,6 +10,7 @@ const API_URL_QUESTION = "http://localhost:9999/Question";
 const API_URL_COMMENT = "http://localhost:9999/Comment";
 const API_URL_ACCOUNTCOURSE = "http://localhost:9999/AccountCourse";
 const API_URL_ACCOUNTSEMESTER = "http://localhost:9999/AccountSemester";
+const API_URL_CONTENTCOURSE = "http://localhost:9999/ContentCourse";
 
 const Apiservice = {
   getListAccount: async () => {
@@ -50,6 +51,10 @@ const Apiservice = {
   },
   getListStatus: async () => {
     const response = await axios.get(API_URL_STATUS);
+    return response.data;
+  },
+  getListContentCourse: async () => {
+    const response = await axios.get(API_URL_CONTENTCOURSE);
     return response.data;
   }
 };
