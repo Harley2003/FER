@@ -4,7 +4,7 @@ import HomePage from "./components/students/HomePage";
 import "./assets/css/style.css";
 import { PATHROUTERS } from "./utils/pathRouter";
 import Assignment from "./components/students/Assignment";
-import UpcomingSlot from './components/students/UpcomingSlot';
+import UpcomingSlot from "./components/students/UpcomingSlot";
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -25,10 +25,6 @@ const renderUserRouter = () => {
       component: ""
     },
     {
-      path: PATHROUTERS.USERS.LOGIN,
-      component: ""
-    },
-    {
       path: PATHROUTERS.USERS.ASSIGNMENT,
       component: <Assignment />
     },
@@ -41,7 +37,16 @@ const renderUserRouter = () => {
   return (
     <Routes>
       {userRouters.map((item, key) => (
-        <Route key={key} path={item.path} element={item.component} />
+        <Route key={key} path={item.path} element={item.component}>
+          {item.children &&
+            item.children.map((child, childKey) => (
+              <Route
+                key={childKey}
+                path={child.path}
+                element={child.component}
+              />
+            ))}
+        </Route>
       ))}
     </Routes>
   );

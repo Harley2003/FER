@@ -19,7 +19,7 @@ import { FaChalkboardTeacher, FaArrowRight } from "react-icons/fa";
 import { LiaIdCardSolid, LiaUserCircleSolid } from "react-icons/lia";
 import boxNoData from "../../assets/images/box-no-data-KZXFWQlG.png";
 import { DataContext } from "../../contexts/DataContext";
-import { toast } from "react-toastify"; // Import toast library or use your preferred toast library
+import { toast } from "react-toastify"; 
 
 function CustomTabPanel({ children, value, index, ...other }) {
   return (
