@@ -3,7 +3,7 @@ export const PATHROUTERS = {
     SHOWPAGE: "/",
     LOGIN: "/login",
     HOMEPAGES: "/homepage",
-    HOMECOURSES: "/home-course",
+    HOMECOURSES: "/course",
     VIEWDETAILQUESTIONS: "/detail-question",
     ASSIGNMENT: "/assignments",
     UPCOMINGSLOT: "/upcoming-slots"

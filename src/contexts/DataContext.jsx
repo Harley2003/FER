@@ -7,6 +7,8 @@ const Provider = ({ children }) => {
   const [account, setAccount] = useState([]);
   const [semester, setSemester] = useState([]);
   const [cls, setCls] = useState([]);
+  const [slot, setSlot] = useState([]);
+  const [contentCourse, setContentCourse] = useState([]);
   const [course, setCourse] = useState([]);
   const [accountCourse, setAccountCourse] = useState([]);
   const [accountSemester, setAccountSemester] = useState([]);
@@ -21,6 +23,24 @@ const Provider = ({ children }) => {
       console.error("Error fetching Account:", error);
     }
   };
+
+  const fetchSlot = async () => {
+    try {
+      const response = await Apiservice.getListSlot();
+      setSlot(response);
+    } catch (error) {
+      console.error("Error fetching Slot:", error);
+    }
+  };
+
+  const fetchContentCourse = async () => {
+    try {
+      const response = await Apiservice.getListContentCourse();
+      setContentCourse(response);
+    } catch (error) {
+      console.error("Error fetching Content Course:", error);
+    }
+  }
 
   const fetchSemester = async () => {
     try {
@@ -79,6 +99,8 @@ const Provider = ({ children }) => {
   useEffect(() => {
     fetchAccount();
     fetchSemester();
+    fetchSlot();
+    fetchContentCourse();
     fetchClass();
     fetchCourse();
     fetchAccountCourse();
@@ -94,6 +116,10 @@ const Provider = ({ children }) => {
         semester,
         setSemester,
         cls,
+        slot,
+        setSlot,
+        contentCourse, 
+        setContentCourse,
         setCls,
         course,
         setCourse,
