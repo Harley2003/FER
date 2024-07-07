@@ -57,7 +57,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 const DrawerClose = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "flex-center",
+  justifyContent: "center",
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar
 }));
@@ -102,6 +102,7 @@ export default function MainRight() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
+  const getAccount = JSON.parse(localStorage.getItem("Account"));
 
   const handleDrawerToggle = () => {
     setLoading(true);
@@ -109,6 +110,14 @@ export default function MainRight() {
       setLoading(false);
       setOpen((prevOpen) => !prevOpen);
     }, 1000);
+  };
+
+  const accountName =
+    account.find((name) => name.id === getAccount?.id)?.name ||
+    "No Account Found";
+
+  const handleLogout = () => {
+    localStorage.removeItem("Account");
   };
 
   return (
@@ -151,15 +160,13 @@ export default function MainRight() {
           }}
           className="ps-menu-button"
           tabIndex="0"
+          to="/login"
+          onClick={handleLogout}
         >
           <div className="flex flex-col items-center justify-center text-center">
             <MdAccountCircle size={30} />
             <p style={{ fontSize: "15px", display: open ? "block" : "none" }}>
-              {account.map((name) => {
-                if (name.id === 1) {
-                  return name.name;
-                }
-              })}
+              {accountName}
             </p>
           </div>
         </Link>
@@ -176,7 +183,6 @@ export default function MainRight() {
             </IconButton>
           </DrawerClose>
         )}
-
         <List>
           {menuItems.map((item) => (
             <ListItem key={item.text} disablePadding sx={{ display: "block" }}>
@@ -217,24 +223,22 @@ export default function MainRight() {
         </List>
       </Drawer>
       {loading && (
-        <>
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "rgba(0, 0, 0, 0.2)",
-              zIndex: 9999,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center"
-            }}
-          >
-            <CircularProgress />
-          </Box>
-        </>
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.2)",
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <CircularProgress />
+        </Box>
       )}
     </Box>
   );
