@@ -14,7 +14,6 @@ const successColor = {
 
 const HomePage = () => {
   return (
-    <>
       <div>
         <div className="fixed top-[10px] right-[30px]">
           <p style={{ fontSize: ".625rem" }}>APHL</p>
@@ -29,7 +28,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./components/students/HomePage";
+import ShowPage from "./components/users/ShowPage"
+import Login from "./components/users/Login/Login"
 import "./assets/css/style.css";
 import { PATHROUTERS } from "./utils/pathRouter";
 import Assignment from "./components/students/Assignment";
@@ -11,11 +13,11 @@ const renderUserRouter = () => {
   const userRouters = [
     {
       path: PATHROUTERS.USERS.SHOWPAGE,
-      component: "",
+      component: <ShowPage/>,
     },
     {
       path: PATHROUTERS.USERS.LOGIN,
-      component: "",
+      component: <Login/>,
     },
     {
       path: PATHROUTERS.USERS.HOMEPAGES,
@@ -24,10 +26,6 @@ const renderUserRouter = () => {
     {
       path: PATHROUTERS.USERS.HOMECOURSES,
       component: <CourseDetails />,
-    },
-    {
-      path: PATHROUTERS.USERS.LOGIN,
-      component: "",
     },
     {
       path: PATHROUTERS.USERS.ASSIGNMENT,
