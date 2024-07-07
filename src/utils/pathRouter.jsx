@@ -1,6 +1,7 @@
 export const PATHROUTERS = {
   USERS: {
-    LOGIN: "login",
+    SHOWPAGE: "/",
+    LOGIN: "/login",
     HOMEPAGES: "/homepage",
     HOMECOURSES: "/home-course",
     VIEWDETAILQUESTIONS: "/detail-question"

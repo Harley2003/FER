@@ -1,0 +1,37 @@
+.fs-10 {
+    font-size: .625rem;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.css-1wvake5.ps-collapsed {
+    width: 80px;
+    min-width: 80px;
+}
+
+.css-1wvake5 {
+    position: relative;
+    border-right: 1px solid rgb(239, 239, 239);
+    border-top-color: rgb(239, 239, 239);
+    border-bottom-color: rgb(239, 239, 239);
+    border-left-color: rgb(239, 239, 239);
+    transition: width 0s ease 0s, left 0s ease 0s, right 0s ease 0s, all 300ms ease 0s;
+    width: 250px;
+    min-width: 250px;
+}
+
+.css-dip3t8 {
+    position: relative;
+    height: 100%;
+    overflow: hidden auto;
+    z-index: 3;
+    background-color: rgba(249, 249, 249, 0.7);
+}
+.css-ewdv3l {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}

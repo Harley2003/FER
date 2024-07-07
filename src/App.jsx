@@ -1,18 +1,23 @@
 import React from "react";
 import { Router, Routes, Route } from "react-router-dom";
-import HomePage from "./components/users/HomePage";
+import ShowPage from "./components/users/ShowPage";
 import "./assets/css/style.css";
 import { PATHROUTERS } from "./utils/pathRouter";
+import Login from "./components/users/Login/Login";
 
 const renderUserRouter = () => {
   const userRouters = [
     {
+      path: PATHROUTERS.USERS.SHOWPAGE,
+      component: <ShowPage/>
+    },
+    {
       path: PATHROUTERS.USERS.LOGIN,
-      component: ""
+      component: <Login/>
     },
     {
       path: PATHROUTERS.USERS.HOMEPAGES,
-      component: <HomePage />
+      component: ""
     },
     {
       path: PATHROUTERS.USERS.HOMECOURSES,
@@ -27,7 +32,16 @@ const renderUserRouter = () => {
   return (
     <Routes>
       {userRouters.map((item, key) => (
-        <Route key={key} path={item.path} element={item.component} />
+        <Route key={key} path={item.path} element={item.component}>
+          {item.children &&
+            item.children.map((child, childKey) => (
+              <Route
+                key={childKey}
+                path={child.path}
+                element={child.component}
+              />
+            ))}
+        </Route>
       ))}
     </Routes>
   );
