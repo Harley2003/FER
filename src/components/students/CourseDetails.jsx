@@ -5,17 +5,14 @@ import MainRight from "./MainRight";
 import {
   Box,
   Typography,
-  Tabs,
-  Tab,
-  List,
-  ListItem,
-  ListItemText,
   CircularProgress,
-  Paper,
   Divider,
   Button,
-  Grid,
+  Paper,
   Chip,
+  Select,
+  MenuItem,
+  Pagination,
 } from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
 
@@ -23,18 +20,22 @@ const CourseDetails = () => {
   const [searchParams] = useSearchParams();
   const courseId = searchParams.get("id");
   const classId = searchParams.get("classID");
-  console.log(classId, courseId)
 
-  const { course, cls, slot, question, status, contentCourse } =
+  const { course, cls, slot, question, status, contentCourse, account } =
     useContext(DataContext);
   const [currentCourse, setCurrentCourse] = useState(null);
   const [currentSlot, setCurrentSlot] = useState(null);
+  const [teacher, setTeacher] = useState(null);
   const [content, setContent] = useState(null);
   const [currentClass, setCurrentClass] = useState(null);
   const [courseSlots, setCourseSlots] = useState([]);
   const [tab, setTab] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 10;
+const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
 
   useEffect(() => {
     const fetchData = () => {
@@ -51,16 +52,10 @@ const CourseDetails = () => {
       }
 
       const foundCourse = course.find((c) => c.id == courseId);
-    //   const foundClass = cls.find((cl) => cl.id == classId);
       const foundClass = cls.filter((c) =>
         c.id.toString().includes(classId.toString())
       );
-
-    //   if (!foundCourse || !foundClass) {
-    //     setError("Course or class not found");
-    //     setLoading(false);
-    //     return;
-    //   }
+      setCurrentClass(foundClass);
 
       const foundSlots = slot.filter((s) =>
         s.courseID.toString().includes(courseId.toString())
@@ -70,8 +65,12 @@ const CourseDetails = () => {
         c.courseID.toString().includes(courseId.toString())
       );
 
+      const foundTeacher = account.filter(
+        (a) => a.roleID === 2 && a.classID.includes(parseInt(classId))
+      );
+
+      setTeacher(foundTeacher);
       setCurrentCourse(foundCourse);
-      setCurrentClass(foundClass);
       setContent(foundContent);
       setCurrentSlot(foundSlots);
       setCourseSlots(foundSlots);
@@ -81,10 +80,20 @@ const CourseDetails = () => {
     fetchData();
   }, [courseId, classId, course, cls, slot]);
 
-  console.log(content)
-  console.log(courseSlots)
+  useEffect(() => {
+    // Update default value for Jump slot when currentPage changes
+    if (courseSlots.length > 0) {
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      setSelectedJumpSlot(courseSlots[startIndex]?.id || "");
+    }
+  }, [currentPage, courseSlots, itemsPerPage]);
+
   const handleChangeTab = (event, newValue) => {
     setTab(newValue);
+  };
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
   };
 
   if (loading) {
@@ -103,140 +112,180 @@ const CourseDetails = () => {
     ? question.filter((q) => courseSlots.some((s) => s.id === q.slotID))
     : [];
 
+  const displayedSlots = courseSlots.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <>
-      <div>
-        <div className="fixed top-[10px] right-[30px]">
-          <p style={{ fontSize: ".625rem" }}>APHL</p>
-        </div>
-        <div className="flex sticky">
-          <MainRight />
-          <div className="w-full h-screen">
-            <div className="grow p-[20px]">
-              <Box sx={{ width: "100%", padding: 3 }}>
-                <Typography variant="h5" gutterBottom>
-                  <Link to="/homepage" style={{ color: "blue" }}>
-                    Home
-                  </Link>{" "}
-                  / {currentCourse.title} ↔ {currentCourse.name}
-                </Typography>
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    border: "1px solid #ccc",
-                    borderRadius: 1,
-                    p: 2,
-                    mb: 3,
-                  }}
-                >
-                  <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
-                    <Typography>Filter activities</Typography>
-                    <select
-                      className="filter-activities"
-                      style={{ padding: "5px", marginTop: "5px" }}
-                    >
-                      <option value="all">All Activities</option>
-                      {status.map((s) => (
-                        <option key={s.id} value={s.id}>
-                          {s.statusName}
-                        </option>
-                      ))}
-                    </select>
-                  </Box>
-                  <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
-                    <Typography>Jump slot</Typography>
-                    <select
-                      className="jump-slot"
-                      style={{ padding: "5px", marginTop: "5px" }}
-                    >
-                      {/* <option value="slot5">Slot:</option> */}
-                      {courseSlots.map((slot) => (
-                        <option key={slot.id} value={slot.id}>
-                          Slot {slot.id}
-                        </option>
-                      ))}
-                    </select>
-                  </Box>
-                  <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
-                    <Typography>Class name</Typography>
-                    <select
-                      className="class-name"
-                      style={{ padding: "5px", marginTop: "5px" }}
-                    >
-                      {currentClass.map((c) => (
-                        <option key={c.id} value={c.id}>
-                          {c.name}
-                        </option>
-                      ))}
-                    </select>
-                  </Box>
+      {/* Header */}
+      <div className="fixed top-[10px] right-[30px]">
+        <p style={{ fontSize: ".625rem" }}>APHL</p>
+      </div>
 
-                  <Box sx={{ display: "flex", gap: 2, ml: "auto" }}>
-                    <Button variant="contained" color="primary">
-                      LEARNING MATERIALS
-                    </Button>
-                    <Button variant="contained" color="primary">
-                      ASSIGNMENTS
+      {/* Main Content */}
+      <div className="flex sticky">
+        <MainRight />
+        <div className="w-full h-screen">
+          <div className="grow p-[20px]">
+            <Box sx={{ width: "100%", padding: 3 }}>
+              <Typography variant="h5" gutterBottom>
+                <Link to="/homepage" style={{ color: "blue" }}>
+                  Home
+                </Link>{" "}
+                / {currentCourse.title} ↔ {currentCourse.name}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  border: "1px solid #ccc",
+                  borderRadius: 1,
+                  p: 2,
+                  mb: 3,
+                }}
+              >
+                <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
+                  <Typography>Filter activities</Typography>
+                  <Select
+                    className="filter-activities"
+                    style={{ padding: "5px", marginTop: "5px" }}
+                    defaultValue="all"
+                  >
+                    <MenuItem value="all">All Activities</MenuItem>
+                    {status.map((s) => (
+                      <MenuItem key={s.id} value={s.id}>
+                        {s.statusName}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </Box>
+                <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
+                  <Typography>Jump slot</Typography>
+                  <Select
+                    className="jump-slot"
+                    style={{ padding: "5px", marginTop: "5px" }}
+                    value={selectedJumpSlot}
+                    onChange={(e) => setSelectedJumpSlot(e.target.value)}
+                  >
+                    {displayedSlots.map((slot) => (
+                      <MenuItem key={slot.id} value={slot.id}>
+                        Slot: {slot.id}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </Box>
+                <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
+                  <Typography>Class name</Typography>
+                  <Select
+                    className="class-name"
+                    style={{ padding: "5px", marginTop: "5px" }}
+                    defaultValue={
+                      currentClass.length > 0 ? currentClass[0].id : ""
+                    }
+                  >
+                    {currentClass.map((c) => (
+                      <MenuItem key={c.id} value={c.id}>
+                        {c.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </Box>
+
+                <Box sx={{ display: "flex", gap: 2, ml: "auto" }}>
+                  <Button variant="contained" color="primary">
+                    LEARNING MATERIALS
+                  </Button>
+                  <Button variant="contained" color="primary">
+                    ASSIGNMENTS
+                  </Button>
+                </Box>
+              </Box>
+              {Array.isArray(teacher) && teacher.length > 0 ? (
+                teacher.map((t) => (
+                  <div key={t.id}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                     Teacher: {t.email}
+                    </Typography>
+                    <Divider sx={{ my: 1 }} />
+                  </div>
+                ))
+              ) : (
+                <Typography variant="subtitle1">
+                  No teachers available
+                </Typography>
+              )}
+              {displayedSlots.map((slot) => (
+                <Paper key={slot.id} sx={{ mb: 2, p: 2, position: "relative" }}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Chip label={`Slot ${slot.id}`} color="primary" />
+                    <Button
+                      variant="text"
+                      sx={{ position: "absolute", top: 8, right: 8 }}
+                    >
+                      View slot
                     </Button>
                   </Box>
-                </Box>
-                TEACHERS: TRUNGNT@FPT.EDU.VN
-                {courseSlots.map((slot) => (
-                  <Paper
-                    key={slot.id}
-                    sx={{ mb: 2, p: 2, position: "relative" }}
-                  >
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}
-                    >
-                      <Chip label={`Slot ${slot.id}`} color="primary" />
-                      <Button
-                        variant="text"
-                        sx={{ position: "absolute", top: 8, right: 8 }}
-                      >
-                        View slot
-                      </Button>
-                    </Box>
-                    <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
-                      <AccessTime fontSize="small" />
-                      <Typography variant="body2" sx={{ ml: 1 }}>
-                        {`${slot.startDate} - ${slot.endDate}`}
-                      </Typography>
-                    </Box>
-                    <Box sx={{ my: 1 }}>
-                      {content
-                        .filter((c) => c.slot === slot.id)
-                        .map((c) => (
-                          <div key={c.id}>
-                            <Typography
-                              variant="subtitle1"
-                              sx={{ fontWeight: "bold" }}
-                            >
-                              {c.content}
-                            </Typography>
-                            <Divider sx={{ my: 1 }} />
-                          </div>
-                        ))}
-                    </Box>
-                    {questions
-                      .filter((q) => q.slotID === slot.id)
-                      .map((q) => (
-                        <Typography key={q.id} variant="body2">
-                          {q.title}
-                        </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
+                    <AccessTime fontSize="small" />
+                    <Typography variant="body2" sx={{ ml: 1 }}>
+                      {`${slot.startDate} - ${slot.endDate}`}
+                    </Typography>
+                  </Box>
+                  <Box sx={{ my: 1 }}>
+                    {content
+                      .filter((c) => c.slot === slot.id)
+                      .map((c) => (
+                        <div key={c.id}>
+                          <Typography
+                            variant="subtitle1"
+                            sx={{ fontWeight: "bold" }}
+                          >
+                            {c.content}
+                          </Typography>
+                          <Divider sx={{ my: 1 }} />
+                        </div>
                       ))}
-                  </Paper>
-                ))}
-              </Box>
-            </div>
+                  </Box>
+                  {questions
+                    .filter((q) => q.slotID === slot.id)
+                    .map((q) => (
+                      <Typography key={q.id} variant="body2">
+                        {q.title}
+                      </Typography>
+                    ))}
+                </Paper>
+              ))}
+            </Box>
           </div>
         </div>
+      </div>
+      <div className="fixed bottom-[10px] left-[50%] transform [-translate-x-1/2]">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            mt: 3,
+            backgroundColor: "#fff", 
+            padding: "10px", 
+            borderRadius: "8px", 
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", 
+          }}
+        >
+          <Pagination
+            count={Math.ceil(courseSlots.length / itemsPerPage)}
+            page={currentPage}
+            onChange={handlePageChange}
+          />
+        </Box>
       </div>
     </>
   );
