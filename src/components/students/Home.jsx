@@ -19,7 +19,7 @@ import { FaChalkboardTeacher, FaArrowRight } from "react-icons/fa";
 import { LiaIdCardSolid, LiaUserCircleSolid } from "react-icons/lia";
 import boxNoData from "../../assets/images/box-no-data-KZXFWQlG.png";
 import { DataContext } from "../../contexts/DataContext";
-import { toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 
 function CustomTabPanel({ children, value, index, ...other }) {
   return (
@@ -134,12 +134,17 @@ const Home = () => {
                         <Grid key={cour.id} item xs={12} sm={6} md={4} lg={2.5}>
                           <Card
                             variant="outlined"
-                            sx={{ height: "260px", width: "auto" }}
+                            sx={{ height: "210px", width: "auto" }}
                           >
                             <CardContent>
                               <Link
                                 to={`/course?id=${cour.id}&classID=${cour.classID}`}
-                                style={{ textDecoration: "none" }}
+                                style={{
+                                  textDecoration: "none",
+                                  overflow: "hidden",
+                                  textOverflow: "ellipsis",
+                                  whiteSpace: "nowrap"
+                                }}
                               >
                                 <Typography
                                   variant="body1"
@@ -148,14 +153,19 @@ const Home = () => {
                                     fontWeight: "bold",
                                     ":hover": { color: "blue" },
                                     color: "inherit",
-                                    mb: 1
+                                    mb: 1,
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap"
                                   }}
                                 >
-                                  {`${cour.title} ↔ [${
+                                  {`(${cour.title} ↔ [${
                                     semester.find(
                                       (s) => s.id === cour.semesterID
                                     )?.name
-                                  }] ${cour.name}`}
+                                  }])`}
+                                  <p></p>
+                                  {cour.name}
                                 </Typography>
                               </Link>
                               <Typography

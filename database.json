@@ -103,10 +103,10 @@
       "name": "TRIAL",
       "classID": [1]
     },
-    {
-      "id": 2,
-      "name": "SUMMER2023",
-      "classID": [1]
+    { 
+      "id": 2,  
+      "name": "SUMMER2023", 
+      "classID": [1]  
     },
     {
       "id": 3,
