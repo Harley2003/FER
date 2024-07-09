@@ -13,6 +13,7 @@ const Provider = ({ children }) => {
   const [accountCourse, setAccountCourse] = useState([]);
   const [accountSemester, setAccountSemester] = useState([]);
   const [status, setStatus] = useState([]);
+  const [question, setQuestion] = useState([]);
   const [selected, setSelected] = useState("");
 
   const fetchAccount = async () => {
@@ -24,6 +25,14 @@ const Provider = ({ children }) => {
     }
   };
 
+  const fetchQuestion = async () => {
+    try {
+      const response = await Apiservice.getListQuestion();
+      setQuestion(response);
+    } catch (error) {
+      console.error("Error fetching Question:", error);
+    }
+  }
   const fetchSlot = async () => {
     try {
       const response = await Apiservice.getListSlot();
@@ -100,6 +109,7 @@ const Provider = ({ children }) => {
     fetchAccount();
     fetchSemester();
     fetchSlot();
+    fetchQuestion();
     fetchContentCourse();
     fetchClass();
     fetchCourse();
@@ -129,6 +139,8 @@ const Provider = ({ children }) => {
         setAccountSemester,
         status,
         setStatus,
+        question,
+        setQuestion,
         selected,
         setSelected
       }}
