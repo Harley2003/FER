@@ -244,14 +244,14 @@
       "id": 1,
       "name": "Slot1",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 5,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 2,
       "name": "Slot2",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 1,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
@@ -265,7 +265,7 @@
       "id": 4,
       "name": "Slot4",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 6,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
@@ -279,14 +279,14 @@
       "id": 6,
       "name": "Slot6",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 4,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 7,
       "name": "Slot7",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 1,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
@@ -300,28 +300,28 @@
       "id": 9,
       "name": "Slot9",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 3,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 10,
       "name": "Slot10",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 1,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 11,
       "name": "Slot11",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 3,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 12,
       "name": "Slot12",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 4,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
@@ -342,7 +342,7 @@
       "id": 15,
       "name": "Slot15",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 1,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
@@ -356,28 +356,28 @@
       "id": 17,
       "name": "Slot17",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 3,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 18,
       "name": "Slot18",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 4,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 19,
       "name": "Slot19",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 5,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     },
     {
       "id": 20,
       "name": "Slot20",
       "title": "Sample title",
-      "statusID": 2,
+      "statusID": 6,
       "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     }
   ],
