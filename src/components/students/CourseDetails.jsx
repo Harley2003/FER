@@ -268,14 +268,23 @@ const CourseDetails = () => {
                           View slot
                         </Button>
                       </Box>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mt: 1 }}
-                      >
-                        <AccessTime fontSize="small" />
-                        <Typography variant="body2" sx={{ ml: 1 }}>
-                          {`${slot.startDate} - ${slot.endDate}`}
-                        </Typography>
-                      </Box>
+                      {questions.filter((q) => q.slotID === slot.id).length >
+                        0 && (
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", mt: 1 }}
+                        >
+                          <AccessTime fontSize="small" />
+                          <Typography variant="body2" sx={{ ml: 1 }}>
+                            {`${
+                              questions.find((q) => q.slotID === slot.id)
+                                .startDate
+                            } - ${
+                              questions.find((q) => q.slotID === slot.id)
+                                .endDate
+                            }`}
+                          </Typography>
+                        </Box>
+                      )}
                       <Box sx={{ my: 1 }}>
                         {content
                           .filter((c) => c.slot === slot.id)
@@ -302,52 +311,61 @@ const CourseDetails = () => {
                           {questions
                             .filter((q) => q.slotID === slot.id)
                             .map((q) => (
-                              <Box
+                              <Link
                                 key={q.id}
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  mb: 1,
+                                to={`/detail-question/${courseId}/${slot.id}/${q.id}`}
+                                style={{
+                                  textDecoration: "none",
+                                  color: "inherit",
                                 }}
                               >
                                 <Box
-                                  component="span"
                                   sx={{
-                                    width: 24,
-                                    height: 24,
-                                    backgroundColor: "orange",
-                                    borderRadius: "50%",
                                     display: "flex",
-                                    justifyContent: "center",
                                     alignItems: "center",
-                                    mr: 1,
+                                    mb: 1,
+                                    cursor: "pointer",
                                   }}
                                 >
+                                  <Box
+                                    component="span"
+                                    sx={{
+                                      width: 24,
+                                      height: 24,
+                                      backgroundColor: "orange",
+                                      borderRadius: "50%",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      mr: 1,
+                                    }}
+                                  >
+                                    <Typography
+                                      variant="body2"
+                                      sx={{ color: "white" }}
+                                    >
+                                      Q
+                                    </Typography>
+                                  </Box>
                                   <Typography
                                     variant="body2"
-                                    sx={{ color: "white" }}
+                                    sx={{ flexGrow: 1 }}
                                   >
-                                    Q
+                                    {q.title}
                                   </Typography>
+                                  <Chip
+                                    label="Custom"
+                                    color="error"
+                                    size="small"
+                                    sx={{ mr: 1 }}
+                                  />
+                                  <Chip
+                                    label="Finished"
+                                    color="success"
+                                    size="small"
+                                  />
                                 </Box>
-                                <Typography
-                                  variant="body2"
-                                  sx={{ flexGrow: 1 }}
-                                >
-                                  {q.title}
-                                </Typography>
-                                <Chip
-                                  label="Custom"
-                                  color="error"
-                                  size="small"
-                                  sx={{ mr: 1 }}
-                                />
-                                <Chip
-                                  label="Finished"
-                                  color="success"
-                                  size="small"
-                                />
-                              </Box>
+                              </Link>
                             ))}
                         </Box>
                       )}
