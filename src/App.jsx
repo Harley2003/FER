@@ -8,6 +8,7 @@ import { PATHROUTERS } from "./utils/pathRouter";
 import Assignment from "./components/students/Assignment";
 import UpcomingSlot from './components/students/UpcomingSlot';
 import CourseDetails from "./components/students/CourseDetails";
+import DetailQuestion from './components/students/DetailQuestion';
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -35,6 +36,10 @@ const renderUserRouter = () => {
       path: PATHROUTERS.USERS.UPCOMINGSLOT,
       component: <UpcomingSlot />,
     },
+    {
+      path: PATHROUTERS.USERS.VIEWDETAILQUESTIONS,
+      component: <DetailQuestion />
+    }
   ];
 
   return (

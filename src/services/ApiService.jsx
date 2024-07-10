@@ -29,12 +29,24 @@ const Apiservice = {
     const response = await axios.get(API_URL_COURSE);
     return response.data;
   },
+  getCourseById: async (id) => {
+    const response = await axios.get(`${API_URL_COURSE}/${id}`);
+    return response.data;
+  },
   getListSlot: async () => {
     const response = await axios.get(API_URL_SLOT);
     return response.data;
   },
+  getSlotById: async (id) => {
+    const response = await axios.get(`${API_URL_SLOT}/${id}`);
+    return response.data;
+  },
   getListQuestion: async () => {
     const response = await axios.get(API_URL_QUESTION);
+    return response.data;
+  },
+  getQuestionById: async (id) => {
+    const response = await axios.get(`${API_URL_QUESTION}/${id}`);
     return response.data;
   },
   getListComment: async () => {

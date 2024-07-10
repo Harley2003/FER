@@ -4,7 +4,7 @@ export const PATHROUTERS = {
     LOGIN: "/login",
     HOMEPAGES: "/homepage",
     HOMECOURSES: "/course",
-    VIEWDETAILQUESTIONS: "/detail-question",
+    VIEWDETAILQUESTIONS: "/detail-question/:cid/:sid/:qid",
     ASSIGNMENT: "/assignments",
     UPCOMINGSLOT: "/upcoming-slots"
   },
