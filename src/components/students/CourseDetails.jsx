@@ -36,6 +36,13 @@ const CourseDetails = () => {
 const [currentPage, setCurrentPage] = useState(1);
 const itemsPerPage = 10;
 const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
+const [expandedSlot, setExpandedSlot] = useState(null);
+
+console.log(question);
+
+const handleSlotClick = (slotId) => {
+  setExpandedSlot(expandedSlot === slotId ? null : slotId);
+};
 
   useEffect(() => {
     const fetchData = () => {
@@ -66,7 +73,7 @@ const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
       );
 
       const foundTeacher = account.filter(
-        (a) => a.roleID === 2 && a.classID.includes(parseInt(classId))
+        (a) => a.roleID === 2 && a.id === foundCourse.accountID
       );
 
       setTeacher(foundTeacher);
@@ -90,6 +97,11 @@ const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
 
   const handleChangeTab = (event, newValue) => {
     setTab(newValue);
+  };
+
+  const handleViewSlot = (e, slotId) => {
+    e.stopPropagation(); // Prevent triggering the slot expansion
+    navigate(`/session/detail?classId=${classId}&classroomSessionId=${slotId}`);
   };
 
   const handlePageChange = (event, value) => {
@@ -207,7 +219,7 @@ const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
                 teacher.map((t) => (
                   <div key={t.id}>
                     <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
-                     Teacher: {t.email}
+                      Teacher: {t.email}
                     </Typography>
                     <Divider sx={{ my: 1 }} />
                   </div>
@@ -217,53 +229,123 @@ const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
                   No teachers available
                 </Typography>
               )}
-              {displayedSlots.map((slot) => (
-                <Paper key={slot.id} sx={{ mb: 2, p: 2, position: "relative" }}>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Chip label={`Slot ${slot.id}`} color="primary" />
-                    <Button
-                      variant="text"
-                      sx={{ position: "absolute", top: 8, right: 8 }}
+              <div className="grow p-[20px]">
+                <Box sx={{ width: "100%", padding: 3 }}>
+                  {/* ... other JSX */}
+                  {displayedSlots.map((slot) => (
+                    <Paper
+                      key={slot.id}
+                      sx={{
+                        mb: 2,
+                        p: 2,
+                        position: "relative",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => handleSlotClick(slot.id)}
                     >
-                      View slot
-                    </Button>
-                  </Box>
-                  <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
-                    <AccessTime fontSize="small" />
-                    <Typography variant="body2" sx={{ ml: 1 }}>
-                      {`${slot.startDate} - ${slot.endDate}`}
-                    </Typography>
-                  </Box>
-                  <Box sx={{ my: 1 }}>
-                    {content
-                      .filter((c) => c.slot === slot.id)
-                      .map((c) => (
-                        <div key={c.id}>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Chip label={`Slot ${slot.id}`} color="primary" />
+                        <Button
+                          variant="text"
+                          sx={{ position: "absolute", top: 8, right: 8 }}
+                          onClick={(e) => handleViewSlot(e, slot.id)}
+                        >
+                          View slot
+                        </Button>
+                      </Box>
+                      <Box
+                        sx={{ display: "flex", alignItems: "center", mt: 1 }}
+                      >
+                        <AccessTime fontSize="small" />
+                        <Typography variant="body2" sx={{ ml: 1 }}>
+                          {`${slot.startDate} - ${slot.endDate}`}
+                        </Typography>
+                      </Box>
+                      <Box sx={{ my: 1 }}>
+                        {content
+                          .filter((c) => c.slot === slot.id)
+                          .map((c) => (
+                            <div key={c.id}>
+                              <Typography
+                                variant="subtitle1"
+                                sx={{ fontWeight: "bold" }}
+                              >
+                                {c.content}
+                              </Typography>
+                              <Divider sx={{ my: 1 }} />
+                            </div>
+                          ))}
+                      </Box>
+                      {expandedSlot === slot.id && (
+                        <Box sx={{ mt: 2 }}>
                           <Typography
                             variant="subtitle1"
-                            sx={{ fontWeight: "bold" }}
+                            sx={{ fontWeight: "bold", mb: 1 }}
                           >
-                            {c.content}
+                            QUESTION
                           </Typography>
-                          <Divider sx={{ my: 1 }} />
-                        </div>
-                      ))}
-                  </Box>
-                  {questions
-                    .filter((q) => q.slotID === slot.id)
-                    .map((q) => (
-                      <Typography key={q.id} variant="body2">
-                        {q.title}
-                      </Typography>
-                    ))}
-                </Paper>
-              ))}
+                          {questions
+                            .filter((q) => q.slotID === slot.id)
+                            .map((q) => (
+                              <Box
+                                key={q.id}
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  mb: 1,
+                                }}
+                              >
+                                <Box
+                                  component="span"
+                                  sx={{
+                                    width: 24,
+                                    height: 24,
+                                    backgroundColor: "orange",
+                                    borderRadius: "50%",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center",
+                                    mr: 1,
+                                  }}
+                                >
+                                  <Typography
+                                    variant="body2"
+                                    sx={{ color: "white" }}
+                                  >
+                                    Q
+                                  </Typography>
+                                </Box>
+                                <Typography
+                                  variant="body2"
+                                  sx={{ flexGrow: 1 }}
+                                >
+                                  {q.title}
+                                </Typography>
+                                <Chip
+                                  label="Custom"
+                                  color="error"
+                                  size="small"
+                                  sx={{ mr: 1 }}
+                                />
+                                <Chip
+                                  label="Finished"
+                                  color="success"
+                                  size="small"
+                                />
+                              </Box>
+                            ))}
+                        </Box>
+                      )}
+                    </Paper>
+                  ))}
+                </Box>
+              </div>
             </Box>
           </div>
         </div>
@@ -274,10 +356,10 @@ const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
             display: "flex",
             justifyContent: "center",
             mt: 3,
-            backgroundColor: "#fff", 
-            padding: "10px", 
-            borderRadius: "8px", 
-            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", 
+            backgroundColor: "#fff",
+            padding: "10px",
+            borderRadius: "8px",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           }}
         >
           <Pagination
