@@ -268,14 +268,23 @@ const CourseDetails = () => {
                           View slot
                         </Button>
                       </Box>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mt: 1 }}
-                      >
-                        <AccessTime fontSize="small" />
-                        <Typography variant="body2" sx={{ ml: 1 }}>
-                          {`${slot.startDate} - ${slot.endDate}`}
-                        </Typography>
-                      </Box>
+                      {questions.filter((q) => q.slotID === slot.id).length >
+                        0 && (
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", mt: 1 }}
+                        >
+                          <AccessTime fontSize="small" />
+                          <Typography variant="body2" sx={{ ml: 1 }}>
+                            {`${
+                              questions.find((q) => q.slotID === slot.id)
+                                .startDate
+                            } - ${
+                              questions.find((q) => q.slotID === slot.id)
+                                .endDate
+                            }`}
+                          </Typography>
+                        </Box>
+                      )}
                       <Box sx={{ my: 1 }}>
                         {content
                           .filter((c) => c.slot === slot.id)
