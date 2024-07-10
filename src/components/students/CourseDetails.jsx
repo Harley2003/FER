@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 import MainRight from "./MainRight";
@@ -33,16 +33,25 @@ const CourseDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-const [currentPage, setCurrentPage] = useState(1);
-const itemsPerPage = 10;
-const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
-const [expandedSlot, setExpandedSlot] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const [selectedJumpSlot, setSelectedJumpSlot] = useState("");
+  const [expandedSlot, setExpandedSlot] = useState(null);
 
-console.log(question);
+  const [selectedStatus, setSelectedStatus] = useState("all");
 
-const handleSlotClick = (slotId) => {
-  setExpandedSlot(expandedSlot === slotId ? null : slotId);
-};
+  const filteredSlots = useMemo(() => {
+    return selectedStatus === "all"
+      ? courseSlots
+      : courseSlots.filter(
+          (slot) => slot.statusID.toString() === selectedStatus.toString()
+        );
+  }, [selectedStatus, courseSlots]);
+  console.log(question);
+
+  const handleSlotClick = (slotId) => {
+    setExpandedSlot(expandedSlot === slotId ? null : slotId);
+  };
 
   useEffect(() => {
     const fetchData = () => {
@@ -88,12 +97,11 @@ const handleSlotClick = (slotId) => {
   }, [courseId, classId, course, cls, slot]);
 
   useEffect(() => {
-    // Update default value for Jump slot when currentPage changes
-    if (courseSlots.length > 0) {
+    if (filteredSlots.length > 0) {
       const startIndex = (currentPage - 1) * itemsPerPage;
-      setSelectedJumpSlot(courseSlots[startIndex]?.id || "");
+      setSelectedJumpSlot(filteredSlots[startIndex]?.id || "");
     }
-  }, [currentPage, courseSlots, itemsPerPage]);
+  }, [currentPage, filteredSlots, itemsPerPage]);
 
   const handleChangeTab = (event, newValue) => {
     setTab(newValue);
@@ -124,7 +132,7 @@ const handleSlotClick = (slotId) => {
     ? question.filter((q) => courseSlots.some((s) => s.id === q.slotID))
     : [];
 
-  const displayedSlots = courseSlots.slice(
+  const displayedSlots = filteredSlots.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -164,7 +172,8 @@ const handleSlotClick = (slotId) => {
                   <Select
                     className="filter-activities"
                     style={{ padding: "5px", marginTop: "5px" }}
-                    defaultValue="all"
+                    value={selectedStatus}
+                    onChange={(e) => setSelectedStatus(e.target.value)}
                   >
                     <MenuItem value="all">All Activities</MenuItem>
                     {status.map((s) => (
@@ -182,7 +191,7 @@ const handleSlotClick = (slotId) => {
                     value={selectedJumpSlot}
                     onChange={(e) => setSelectedJumpSlot(e.target.value)}
                   >
-                    {displayedSlots.map((slot) => (
+                    {filteredSlots.map((slot) => (
                       <MenuItem key={slot.id} value={slot.id}>
                         Slot: {slot.id}
                       </MenuItem>
@@ -363,7 +372,7 @@ const handleSlotClick = (slotId) => {
           }}
         >
           <Pagination
-            count={Math.ceil(courseSlots.length / itemsPerPage)}
+            count={Math.ceil(filteredSlots.length / itemsPerPage)}
             page={currentPage}
             onChange={handlePageChange}
           />
