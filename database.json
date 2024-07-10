@@ -9,7 +9,10 @@
       "email": "Duongnkthe171150@fpt.edu.vn",
       "roleID": 1,
       "roleName": "Student",
-      "classID": [1, 2]
+      "classID": [
+        1,
+        2
+      ]
     },
     {
       "id": 2,
@@ -20,7 +23,10 @@
       "email": "Hoandshe170447@fpt.edu.vn",
       "roleID": 1,
       "roleName": "Student",
-      "classID": [1, 2]
+      "classID": [
+        1,
+        2
+      ]
     },
     {
       "id": 3,
@@ -31,7 +37,10 @@
       "email": "Quanndmhe170809@fpt.edu.vn",
       "roleID": 1,
       "roleName": "Student",
-      "classID": [1, 2]
+      "classID": [
+        1,
+        2
+      ]
     },
     {
       "id": 4,
@@ -42,91 +51,132 @@
       "email": "Ducnahe171122@fpt.edu.vn",
       "roleID": 1,
       "roleName": "Student",
-      "classID": [1, 2]
+      "classID": [
+        1,
+        2
+      ]
     },
     {
       "id": 5,
+      "name": "Hoannn",
       "userName": "teacher1",
       "password": "123",
       "email": "Hoannn6@fpt.edu.vn",
       "roleID": 2,
       "roleName": "Teacher",
       "teacherID": "Hoannn6",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 6,
+      "name": "Linhndm",
       "userName": "teacher2",
       "password": "123",
       "email": "Linhndm3@fpt.edu.vn",
       "roleID": 2,
       "roleName": "Teacher",
       "teacherID": "Linhndm3",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 7,
+      "name": "Thanhdt",
       "userName": "teacher3",
       "password": "123",
       "email": "Thanhdt59@fpt.edu.vn",
       "roleID": 2,
       "roleName": "Teacher",
       "teacherID": "Thanhdt59",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 8,
+      "name": "Nangnth",
       "userName": "teacher4",
       "password": "123",
       "email": "Nangnth@fpt.edu.vn",
       "roleID": 2,
       "roleName": "Teacher",
       "teacherID": "Nangnth",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     }
   ],
   "Class": [
     {
       "id": 1,
       "name": "SE1835-NJ-APHL",
-      "accountID": [1, 2, 3, 4, 5, 6, 7, 8]
+      "accountID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
     },
     {
       "id": 2,
       "name": "SE1830-APHL",
-      "accountID": [1, 2, 3, 4]
+      "accountID": [
+        1,
+        2,
+        3,
+        4
+      ]
     }
   ],
   "Semester": [
     {
       "id": 1,
       "name": "TRIAL",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 2,
       "name": "SUMMER2023",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 3,
       "name": "FALL2023",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 4,
       "name": "SPRING2023",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 5,
       "name": "SPRING2024",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     },
     {
       "id": 6,
       "name": "SUMMER2024",
-      "classID": [1]
+      "classID": [
+        1
+      ]
     }
   ],
   "Course": [
@@ -245,140 +295,400 @@
       "name": "Slot1",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 2,
       "name": "Slot2",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 3,
       "name": "Slot3",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 4,
       "name": "Slot4",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 5,
       "name": "Slot5",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 6,
       "name": "Slot6",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 7,
       "name": "Slot7",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 8,
       "name": "Slot8",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 9,
       "name": "Slot9",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 10,
       "name": "Slot10",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 11,
       "name": "Slot11",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 12,
       "name": "Slot12",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 13,
       "name": "Slot13",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 14,
       "name": "Slot14",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 15,
       "name": "Slot15",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 16,
       "name": "Slot16",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 17,
       "name": "Slot17",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 18,
       "name": "Slot18",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 19,
       "name": "Slot19",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     },
     {
       "id": 20,
       "name": "Slot20",
       "title": "Sample title",
       "statusID": 2,
-      "courseID": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      "courseID": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     }
   ],
   "Status": [
@@ -818,6 +1128,13 @@
       "title": "123",
       "content": "123",
       "id": 11
+    },
+    {
+      "accountID": 8,
+      "questionID": 1,
+      "title": "hihi",
+      "content": "hihi",
+      "id": 12
     }
   ],
   "ContentCourse": [

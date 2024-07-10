@@ -330,7 +330,7 @@ const DetailQuestion = () => {
             <nav style={navStyles}>
               <ul style={ulStyles}>
                 <li>
-                  <Link to="/" style={linkStyles}>
+                  <Link to="/homepage" style={linkStyles}>
                     Home
                   </Link>
                 </li>

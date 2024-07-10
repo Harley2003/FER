@@ -12,7 +12,7 @@ import {
   Chip,
   Select,
   MenuItem,
-  Pagination,
+  Pagination
 } from "@mui/material";
 import { AccessTime } from "@mui/icons-material";
 
@@ -108,7 +108,7 @@ const CourseDetails = () => {
   };
 
   const handleViewSlot = (e, slotId) => {
-    e.stopPropagation(); // Prevent triggering the slot expansion
+    e.stopPropagation();
     navigate(`/session/detail?classId=${classId}&classroomSessionId=${slotId}`);
   };
 
@@ -164,7 +164,7 @@ const CourseDetails = () => {
                   border: "1px solid #ccc",
                   borderRadius: 1,
                   p: 2,
-                  mb: 3,
+                  mb: 3
                 }}
               >
                 <Box sx={{ display: "flex", flexDirection: "column", mr: 2 }}>
@@ -248,7 +248,7 @@ const CourseDetails = () => {
                         mb: 2,
                         p: 2,
                         position: "relative",
-                        cursor: "pointer",
+                        cursor: "pointer"
                       }}
                       onClick={() => handleSlotClick(slot.id)}
                     >
@@ -256,7 +256,7 @@ const CourseDetails = () => {
                         sx={{
                           display: "flex",
                           justifyContent: "space-between",
-                          alignItems: "center",
+                          alignItems: "center"
                         }}
                       >
                         <Chip label={`Slot ${slot.id}`} color="primary" />
@@ -302,52 +302,61 @@ const CourseDetails = () => {
                           {questions
                             .filter((q) => q.slotID === slot.id)
                             .map((q) => (
-                              <Box
+                              <Link
                                 key={q.id}
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  mb: 1,
+                                to={`/detail-question/${courseId}/${slot.id}/${q.id}`}
+                                style={{
+                                  textDecoration: "none",
+                                  color: "inherit"
                                 }}
                               >
                                 <Box
-                                  component="span"
                                   sx={{
-                                    width: 24,
-                                    height: 24,
-                                    backgroundColor: "orange",
-                                    borderRadius: "50%",
                                     display: "flex",
-                                    justifyContent: "center",
                                     alignItems: "center",
-                                    mr: 1,
+                                    mb: 1,
+                                    cursor: "pointer"
                                   }}
                                 >
+                                  <Box
+                                    component="span"
+                                    sx={{
+                                      width: 24,
+                                      height: 24,
+                                      backgroundColor: "orange",
+                                      borderRadius: "50%",
+                                      display: "flex",
+                                      justifyContent: "center",
+                                      alignItems: "center",
+                                      mr: 1
+                                    }}
+                                  >
+                                    <Typography
+                                      variant="body2"
+                                      sx={{ color: "white" }}
+                                    >
+                                      Q
+                                    </Typography>
+                                  </Box>
                                   <Typography
                                     variant="body2"
-                                    sx={{ color: "white" }}
+                                    sx={{ flexGrow: 1 }}
                                   >
-                                    Q
+                                    {q.title}
                                   </Typography>
+                                  <Chip
+                                    label="Custom"
+                                    color="error"
+                                    size="small"
+                                    sx={{ mr: 1 }}
+                                  />
+                                  <Chip
+                                    label="Finished"
+                                    color="success"
+                                    size="small"
+                                  />
                                 </Box>
-                                <Typography
-                                  variant="body2"
-                                  sx={{ flexGrow: 1 }}
-                                >
-                                  {q.title}
-                                </Typography>
-                                <Chip
-                                  label="Custom"
-                                  color="error"
-                                  size="small"
-                                  sx={{ mr: 1 }}
-                                />
-                                <Chip
-                                  label="Finished"
-                                  color="success"
-                                  size="small"
-                                />
-                              </Box>
+                              </Link>
                             ))}
                         </Box>
                       )}
@@ -368,7 +377,7 @@ const CourseDetails = () => {
             backgroundColor: "#fff",
             padding: "10px",
             borderRadius: "8px",
-            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)"
           }}
         >
           <Pagination
